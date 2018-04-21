@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace alg1wpf
 {
+    public enum Algoritms { DijkstraDHeap, FordBellman }
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
