@@ -1,0 +1,41 @@
+﻿<Window Name="form" SizeChanged="Window_SizeChanged" x:Class="Math4Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="Лабораторная работа номер 4" Height="450" Width="850" Loaded="Window_Loaded">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                </ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <oxy:Plot Title="{Binding Title}" Grid.Column="1">
+                <oxy:Plot.Series>
+                    <oxy:LineSeries Name="Line" Visibility="Hidden" Color="Black" ItemsSource="{Binding Points}"/>
+                </oxy:Plot.Series>
+            </oxy:Plot>
+            <oxy:PlotView Name="Graphic" Visibility="Hidden" Model="{Binding model}" Grid.Column="1"/>
+            <TextBlock Grid.Column="0" Height="30" Width="150" Margin="10,10,133.6,330.4">Выберите функцию</TextBlock>
+            <ComboBox Name="SelectFunction" DropDownClosed ="SelectFunction_DropDownClosed"  Grid.Column="0" Height="30" Width="100" Margin="189,10,4.6,330.4">
+                <ListBoxItem Content="y' = x^2 - 2y"></ListBoxItem>
+                <ListBoxItem Content="e^x + Sin(x) - sqrt(x)"></ListBoxItem>
+            </ComboBox>
+            <TextBlock Name="text1" Visibility="Visible" Grid.Column="0" Height="30" Width="250" FontSize="10" Margin="10,71,33.6,269.4">Введите начальные условия</TextBlock>
+            <TextBlock Name="text2" Visibility="Visible" Grid.Column="0" Height="30" Width="50" Margin="10,101,233.6,239.4" RenderTransformOrigin="0.392,-0.34">x0</TextBlock>
+            <TextBlock Name="text3" Visibility="Visible" Grid.Column="0" Height="30" Width="50" Margin="10,136,233.6,204.4">y0</TextBlock>
+            <TextBlock Name="text4" Visibility="Visible" Grid.Column="0" Height="30" Width="50" Margin="10,171,233.6,169.4" RenderTransformOrigin="0.375,-0.816">x</TextBlock>
+            <TextBlock Name="text5" Visibility="Visible" Grid.Column="0" Height="30" Width="80" Margin="178,309,85.2,81" RenderTransformOrigin="0.375,-0.816">Точность</TextBlock>
+            <TextBox Name="xStart" Visibility="Visible" Grid.Column="0" Height="30" Width="50" FontSize="10" Margin="65,101,178.6,239.4" RenderTransformOrigin="0.48,-0.612"></TextBox>
+            <TextBox Name="yStart" Visibility="Visible" Grid.Column="0" Height="30" Width="50" FontSize="10" Margin="65,136,178.6,204.4"></TextBox>
+            <TextBox Name="xEnd" Visibility="Visible" Grid.Column="0" Height="30" Width="50" FontSize="10" Margin="65,171,178.6,169.4" RenderTransformOrigin="1.624,-0.186"></TextBox>
+            <TextBox Name="Precision" Visibility="Visible" Grid.Column="0" Height="30" Width="50" FontSize="10" Margin="0,284,9.6,56.4" RenderTransformOrigin="1.624,-0.186" HorizontalAlignment="Right"></TextBox>
+            <Button Name="ButtonResult" Grid.Column="0" Height="30" Width="150" Margin="134,330,9.6,10.4" Click="Button_Click" RenderTransformOrigin="0.543,-0.41">Построить график</Button>
+            <TextBlock Name="inform1" Visibility="Visible" Grid.Column="0" Height="25" Width="250" FontSize="10" Margin="83,279,10.2,116" RenderTransformOrigin="0.48,-0.612">Значение точности не больше 1 и не меньше 0.001</TextBlock>
+            <TextBlock Name="inform2" Visibility="Hidden" Grid.Column="0" Height="25" Width="200" FontSize="12" Margin="138,249,5.2,146" RenderTransformOrigin="0.48,-0.612">Значение точности не меньше 0.001</TextBlock>
+        </Grid>
+    </Grid>
+</Window>

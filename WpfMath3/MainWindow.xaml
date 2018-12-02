@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfMath3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMath3"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="Интерполяция кубическими сплайнами" Loaded="Window_Loaded" Height="500" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <oxy:PlotView Name="Image" Visibility="Hidden" Model="{Binding model}" Grid.Column="1"/>
+        <TextBlock Grid.Column="0" Height="30" Width="150" Margin="10,10,133.6,330.4">Выберите функцию</TextBlock>
+        <ComboBox Name="SelectFunction" Grid.Column="0" Height="30" Width="100" Margin="189,10,4.6,330.4">
+            <ListBoxItem Content="sin(x)"></ListBoxItem>
+            <ListBoxItem Content="cos(x)"></ListBoxItem>
+            <ListBoxItem Content="1"></ListBoxItem>
+            <ListBoxItem Content="x"></ListBoxItem>
+            <ListBoxItem Content="x^2"></ListBoxItem>
+        </ComboBox>
+        <TextBlock Grid.Column="0" Height="30" Width="150" Margin="10,45,133.6,295.4">Выберите кол-во точек</TextBlock>
+        <ComboBox Name="SelectCountPoint" DropDownClosed="SelectCountPoint_DropDownClosed" Grid.Column="0" Height="30" Width="100" Margin="189,45,4.6,295.4">
+            <ListBoxItem Content="4"></ListBoxItem>
+            <ListBoxItem Content="5"></ListBoxItem>
+            <ListBoxItem Content="6"></ListBoxItem>
+            <ListBoxItem Content="7"></ListBoxItem>
+            <ListBoxItem Content="8"></ListBoxItem>
+        </ComboBox>
+        <TextBlock Name="text1" Visibility="Hidden" Grid.Column="0" Height="20" Width="250" FontSize="10" Margin="10,80,33.6,270.4">Введите координаты точек</TextBlock>
+        <TextBlock Name="text2" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" Margin="10,105,233.6,245.4">X</TextBlock>
+        <TextBox Name="x0" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,135,233.6,215.4"></TextBox>
+        <TextBox Name="x1" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,160,233.6,190.4"></TextBox>
+        <TextBox Name="x2" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,185,233.6,165.4"></TextBox>
+        <TextBox Name="x3" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,210,233.6,140.4"></TextBox>
+        <TextBox Name="x4" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,235,233.6,115.4"></TextBox>
+        <TextBox Name="x5" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,260,233.6,90.4"></TextBox>
+        <TextBox Name="x6" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,285,233.6,65.4"></TextBox>
+        <TextBox Name="x7" Visibility="Hidden" Grid.Column="0" Height="20" Width="50" FontSize="10" Margin="10,310,233.6,40.4"></TextBox>
+        <Button Grid.Column="0" Height="30" Width="150" Margin="134,330,9.6,10.4" Click="Button_Click">Начать интерполяцию</Button>
+    </Grid>
+</Window>
